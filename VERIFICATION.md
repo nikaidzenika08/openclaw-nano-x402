@@ -22,7 +22,9 @@
   received HTTP 200 for `/v1/fetch?url=https%3A%2F%2Fexample.com`.
   Send block: `723D6373430BE2A768F5CA2FEFEE6B897CB878843D46BBD0740C0517F6D1E6AA`.
   The sponsor provided 0.05 XNO in test funds; that is not a bounty award.
-- npm publication: pending authenticated npm access.
+- Release package: `openclaw-nano-x402-luka@0.1.0`. Registry availability is
+  separate from the test results above; current submission/publication status
+  is recorded at https://github.com/pursekeeper/api/issues/137.
 - Bounty claim: not complete or awarded.
 - Reward destination: operator will supply it later.
 

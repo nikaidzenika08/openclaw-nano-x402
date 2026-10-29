@@ -18,9 +18,10 @@ npm install --ignore-scripts openclaw-nano-x402-luka@0.1.0
 openclaw plugins install npm:openclaw-nano-x402-luka@0.1.0
 ```
 
-Publication status: **not yet published to npm**. The commands above describe
-the intended release installation. For local review, clone this repository,
-run `npm ci --ignore-scripts`, and add its absolute path to `plugins.load.paths`.
+The release package is `openclaw-nano-x402-luka@0.1.0`; check its
+[npm listing](https://www.npmjs.com/package/openclaw-nano-x402-luka) for public
+availability. For source review, clone this repository, run
+`npm ci --ignore-scripts`, and add its absolute path to `plugins.load.paths`.
 
 Configure the plugin (replace the state directory with an absolute, private
 directory owned by the operator):
