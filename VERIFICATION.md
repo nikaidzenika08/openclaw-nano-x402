@@ -9,7 +9,12 @@
   disabled and optional dependencies omitted. The CLI launches; it warns that
   optional native filesystem support is unavailable with this installation.
 - Offline guard and cryptographic signing suite: **36 passed, 0 failed**.
-- Actual OpenClaw agent-loop test: pending.
+- Packed release installed into a separate directory with `--ignore-scripts`:
+  **36 passed, 0 failed** from the installed package; plugin entry imports.
+- Actual OpenClaw 2026.10.4 agent-loop test: **passed** using a deterministic
+  local model fixture (two model turns). The framework loaded and called the
+  registered tool, which refused an unapproved origin. No inference service or
+  payment was used for this check. This is not a paid mainnet success claim.
 - Mainnet payment from this integration: not run; no payment hash claimed.
 - npm publication: pending authenticated npm access.
 - Bounty claim: not complete or awarded.

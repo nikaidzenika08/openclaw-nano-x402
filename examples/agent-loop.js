@@ -42,7 +42,10 @@ await new Promise(done => server.listen(0, '127.0.0.1', done));
 const config = {
   models: { mode: 'merge', providers: { fixture: { baseUrl: `http://127.0.0.1:${server.address().port}/v1`, apiKey: 'local-fixture-only', api: 'openai-completions', models: [{ id: 'nano-fixture', name: 'Deterministic Nano integration fixture', reasoning: false, input: ['text'], contextWindow: 128000, maxTokens: 4096, cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 } }] } } },
   agents: { defaults: { model: { primary: 'fixture/nano-fixture' }, workspace: state, skipBootstrap: true } },
-  tools: { allow: ['nano_x402_fetch'] },
+  // OpenClaw 2026.10.4's embedded loader needs the profile plus additive plugin
+  // allowlist; a plugin-only global `allow` produces an empty tool surface.
+  // The deterministic model below emits only the one fixed Nano tool call.
+  tools: { profile: 'full', alsoAllow: ['nano-x402', 'nano_x402_fetch'], toolSearch: false },
   plugins: { allow: ['nano-x402'], load: { paths: [root] }, entries: { 'nano-x402': { enabled: true, config: {
     origins: ['https://pursekeeper.dev'], recipients: ['nano_1xug1q5t7nxoj3ywwzokiea9jz8fq8qfgzp8pbyfr3co3e5xgj755uofu8ue'],
     perCallRaw: '1000000000000000000000000000', totalRaw: '1000000000000000000000000000', stateDir: join(state, 'payments')
@@ -54,6 +57,7 @@ const environment = {
   // Do not inherit provider credentials or external CLI sign-ins.
   PATH: process.env.PATH, SystemRoot: process.env.SystemRoot, TEMP: process.env.TEMP, TMP: process.env.TMP,
   HOME: state, USERPROFILE: state, OPENCLAW_STATE_DIR: state, OPENCLAW_CONFIG_PATH: configPath,
+  XDG_CACHE_HOME: join(state, 'cache'), LOCALAPPDATA: join(state, 'local'), APPDATA: join(state, 'roaming'),
   NANO_SEED: live ? process.env.NANO_SEED : '0'.repeat(64), NANO_INDEX: process.env.NANO_INDEX || '0',
   OPENCLAW_DISABLE_TELEMETRY: '1'
 };

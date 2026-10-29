@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "Luka Bakhturidze <bakhturidzelukawork@gmail.com>",
   "engines": { "node": ">=24.22.2" },
-  "files": ["src/", "openclaw.plugin.json", "README.md", "LICENSE"],
+  "files": ["src/", "test/", "examples/", "openclaw.plugin.json", "README.md", "VERIFICATION.md", "LICENSE"],
   "exports": { ".": "./src/index.js", "./client": "./src/client.js" },
   "scripts": { "test": "node --test test/*.test.js", "test:agent": "node examples/agent-loop.js" },
   "dependencies": { "nanocurrency": "2.5.0" },

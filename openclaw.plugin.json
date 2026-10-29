@@ -3,6 +3,7 @@
   "name": "Nano x402",
   "description": "Buy an allowlisted resource using a capped Nano x402 payment",
   "contracts": { "tools": ["nano_x402_fetch"] },
+  "toolMetadata": { "nano_x402_fetch": { "optional": true, "sideEffecting": true, "replaySafe": false } },
   "activation": { "onStartup": true },
   "configSchema": {
     "type": "object",
