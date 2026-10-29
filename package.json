@@ -1,0 +1,17 @@
+{
+  "name": "openclaw-nano-x402-luka",
+  "version": "0.1.0",
+  "description": "OpenClaw Nano x402 tool with recipient, budget and duplicate-payment guards",
+  "type": "module",
+  "license": "MIT",
+  "author": "Luka Bakhturidze <bakhturidzelukawork@gmail.com>",
+  "engines": { "node": ">=24.22.2" },
+  "files": ["src/", "openclaw.plugin.json", "README.md", "LICENSE"],
+  "exports": { ".": "./src/index.js", "./client": "./src/client.js" },
+  "scripts": { "test": "node --test test/*.test.js", "test:agent": "node examples/agent-loop.js" },
+  "dependencies": { "nanocurrency": "2.5.0" },
+  "peerDependencies": { "openclaw": "2026.10.4" },
+  "peerDependenciesMeta": { "openclaw": { "optional": true } },
+  "openclaw": { "extensions": ["./src/index.js"] },
+  "repository": { "type": "git", "url": "git+https://github.com/nikaidzenika08/openclaw-nano-x402.git" }
+}

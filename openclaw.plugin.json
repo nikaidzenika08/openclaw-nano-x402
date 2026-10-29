@@ -1,0 +1,21 @@
+{
+  "id": "nano-x402",
+  "name": "Nano x402",
+  "description": "Buy an allowlisted resource using a capped Nano x402 payment",
+  "contracts": { "tools": ["nano_x402_fetch"] },
+  "activation": { "onStartup": true },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["origins", "recipients", "perCallRaw", "totalRaw", "stateDir"],
+    "properties": {
+      "origins": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+      "recipients": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+      "perCallRaw": {"type": "string", "pattern": "^[1-9][0-9]*$"},
+      "totalRaw": {"type": "string", "pattern": "^[1-9][0-9]*$"},
+      "stateDir": {"type": "string", "minLength": 1},
+      "accountApi": {"type": "string", "default": "https://pursekeeper.dev"},
+      "workUrl": {"type": "string"}
+    }
+  }
+}
